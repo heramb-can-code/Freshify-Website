@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshify - Fresh & Organic</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fa-solid fa-basket-shopping"></i> Freshify
+            </div>
+
+            <nav class="navbar">
+                <a href="#home" class="active">Home</a>
+                <a href="#category">Category</a>
+                <a href="#products">Shop</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="header-icons">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="icon-btn cart-btn-wrapper" id="cart-toggle">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-count">0</span>
+                </div>
+                <button class="login-btn">Sign In</button>
+                <div class="menu-btn" id="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>My Cart</h3>
+            <button id="close-cart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items-container">
+            <!-- Cart items will be injected here -->
+            <div class="empty-cart-msg">Your cart is empty</div>
+        </div>
+        <div class="cart-footer">
+            <div class="total">
+                <span>Total:</span>
+                <span id="cart-total">₹0.00</span>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="home" id="home">
+            <div class="content">
+                <span>Freshify</span>
+                <h3>Fastest Delivery & <span>Easy Pickup</span></h3>
+                <p>Get fresh groceries delivered to your doorstep in minutes. Quality you can trust.</p>
+                <a href="#products" class="btn">Shop Now</a>
+            </div>
+        </section>
+        <!-- Shop by Category -->
+        <section class="categories" id="category">
+            <h1 class="heading">Shop by <span>Category</span></h1>
+            <div class="box-container">
+                <div class="box" onclick="filterProducts('Vegetable')">
+                    <img src="images/veggies.jpeg" alt="Vegetable">
+                    <h3>Vegetable</h3>
+                </div>
+                <div class="box" onclick="filterProducts('Sea Fish')">
+                    <img src="images/fishes.jpeg" alt="Sea Fish">
+                    <h3>Sea Fish</h3>
+                </div>
+                <div class="box" onclick="filterProducts('Egg')">
+                    <img src="images/eggs.jpeg" alt="Egg">
+                    <h3>Egg</h3>
+                </div>
+                <div class="box" onclick="filterProducts('Cheese')">
+                    <img src="images/cheeses.jpeg" alt="Cheese">
+                    <h3>Cheese</h3>
+                </div>
+                <div class="box" onclick="filterProducts('Baking')">
+                    <img src="images/bakery.jpeg" alt="Baking">
+                    <h3>Baking</h3>
+                </div>
+                <div class="box" onclick="filterProducts('Fruits')">
+                    <img src="images/fruits.jpeg" alt="Fruits">
+                    <h3>Fruits</h3>
+                </div>
+                <div class="box" onclick="filterProducts('Meat')">
+                    <img src="images/meatt.png" alt="Meat">
+                    <h3>Meat</h3>
+                </div>
+                <div class="box" onclick="filterProducts('Milk')">
+                    <img src="images/dairy.jpeg" alt="Milk">
+                    <h3>Milk</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promotional Banners -->
+        <section class="banner-container">
+            <div class="banner">
+                <img src="images/banner-1.jpeg" alt="">
+                <div class="content">
+                    <span>Everyday fresh &</span>
+                    <h3>Clean with our Products</h3>
+                    <a href="#products" class="btn">Shop Now</a>
+                </div>
+            </div>
+            <div class="banner">
+                <img src="images/banner-2.jpeg" alt="">
+                <div class="content">
+                    <span>Make your Breakfast</span>
+                    <h3>Healthy and Easy</h3>
+                    <a href="#products" class="btn">Shop Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products" id="products">
+            <h1 class="heading">Our All <span>Products</span></h1>
+
+            <div class="product-filter">
+                <div class="filter-btn active" onclick="filterProducts('all')">All Categories</div>
+                <div class="filter-btn" onclick="filterProducts('Vegetable')">Vegetables</div>
+                <div class="filter-btn" onclick="filterProducts('Fruits')">Fruits</div>
+                <div class="filter-btn" onclick="filterProducts('Meat')">Meat</div>
+                <div class="filter-btn" onclick="filterProducts('Sea Fish')">Fish</div>
+                <div class="filter-btn" onclick="filterProducts('Egg')">Eggs</div>
+                <div class="filter-btn" onclick="filterProducts('Cheese')">Cheese</div>
+                <div class="filter-btn" onclick="filterProducts('Baking')">Baking</div>
+                <!-- Added more relevant filters based on user request instead of generic 'Price' etc -->
+                <div class="filter-btn" onclick="filterProducts('Milk')">Dairy</div>
+            </div>
+
+            <div class="product-slider">
+                <div class="wrapper" id="product-wrapper">
+                    <!-- Products will be injected here via JS -->
+                </div>
+            </div>
+        </section>
+        <!-- Secondary Sections -->
+        <section class="banner-container">
+            <div class="banner">
+                <img src="images/sales-1.jpeg" alt="">
+                <div class="content">
+                    <span>Organic Foods</span>
+                    <h3>Exclusive Brands <br> 30% OFF</h3>
+                    <a href="#products" class="btn">Shop Now</a>
+                </div>
+            </div>
+            <div class="banner">
+                <img src="images/sales-2.jpeg" alt="">
+                <div class="content">
+                    <span>New & Whites</span>
+                    <h3>Super Sales <br> Vegetables Organic</h3>
+                    <a href="#products" class="btn">Shop Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsored By -->
+        <section class="sponsored" id="sponsored">
+            <h1 class="heading">Sponsored <span>By</span></h1>
+            <div class="logo-container">
+                <div class="logo-item">
+                    <h3>ORGANIO</h3>
+                </div>
+                <div class="logo-item">
+                    <h3>RENU</h3>
+                </div>
+                <div class="logo-item">
+                    <h3>GARDEN</h3>
+                </div>
+                <div class="logo-item">
+                    <h3>VEGGIE</h3>
+                </div>
+                <div class="logo-item">
+                    <h3>LEMON</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News/Blogs -->
+        <section class="blogs" id="blogs">
+            <h1 class="heading">Latest News <span>Blogs</span></h1>
+            <div class="box-container">
+                <div class="box">
+                    <div class="image">
+                        <img src="images/farm-fresh.jpeg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="icons">
+                            <a href="#"> <i class="fa-solid fa-user"></i> by heramb </a>
+                            <a href="#"> <i class="fa-solid fa-calendar"></i> 20th Jan, 2026 </a>
+                        </div>
+                        <h3>Experience the Essence of fresh organic food</h3>
+                        <p>Discover the true taste of nature with our hand-picked, 100% organic produce delivered
+                            straight to your table.</p>
+                        <a href="#" class="btn">read more</a>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="image">
+                        <img src="images/blog-2.jpeg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="icons">
+                            <a href="#"> <i class="fa-solid fa-user"></i> by atharva </a>
+                            <a href="#"> <i class="fa-solid fa-calendar"></i> 20th Jan, 2026 </a>
+                        </div>
+                        <h3>Cucumber enhance the tastes.</h3>
+                        <p>Crisp, cool, and refreshing! Learn how adding cucumbers can transform your daily meals and
+                            salads.</p>
+                        <a href="#" class="btn">read more</a>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="image">
+                        <img src="images/blog-3.jpeg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="icons">
+                            <a href="#"> <i class="fa-solid fa-user"></i> by abhay </a>
+                            <a href="#"> <i class="fa-solid fa-calendar"></i> 20th Jan, 2026 </a>
+                        </div>
+                        <h3>Fresh vegetables are good containing vitamins.</h3>
+                        <p>Boost your immunity and energy levels with our nutrient-rich vegetable selection, packed with
+                            essential vitamins.</p>
+                        <a href="#" class="btn">read more</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="content">
+                <h3>Get Update Regularly and best offer subscribe us</h3>
+                <form action="">
+                    <input type="email" placeholder="Your email..." class="email">
+                    <input type="submit" value="Subscribe" class="btn">
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3> Freshify <i class="fa-solid fa-basket-shopping"></i> </h3>
+                <p>Freshness , now at your doorstep.</p>
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#" class="links"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+                <a href="#" class="links"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+                <a href="#" class="links"> <i class="fas fa-envelope"></i> shaikhanas@gmail.com </a>
+                <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> mumbai, india - 400104 </a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#home" class="links"> <i class="fas fa-arrow-right"></i> home </a>
+                <a href="#category" class="links"> <i class="fas fa-arrow-right"></i> features </a>
+                <a href="#products" class="links"> <i class="fas fa-arrow-right"></i> products </a>
+                <a href="#categories" class="links"> <i class="fas fa-arrow-right"></i> categories </a>
+                <a href="#review" class="links"> <i class="fas fa-arrow-right"></i> review </a>
+                <a href="#blogs" class="links"> <i class="fas fa-arrow-right"></i> blogs </a>
+            </div>
+
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest updates</p>
+                <input type="email" placeholder="your email" class="email">
+                <input type="submit" value="subscribe" class="btn">
+                <div class="payment-img">
+                    <i class="fa-brands fa-cc-visa" style="font-size: 3rem; margin-right: 1rem; color: #00579f;"></i>
+                    <i class="fa-brands fa-cc-mastercard"
+                        style="font-size: 3rem; margin-right: 1rem; color: #eb001b;"></i>
+                    <i class="fa-brands fa-cc-paypal" style="font-size: 3rem; margin-right: 1rem; color: #003087;"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Custom JS -->
+        <script src="script.js"></script>
+        <div class="credit"> created by <span> heramb </span> | all rights reserved </div>
+
+    </footer>
+
+</html>
